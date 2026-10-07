@@ -20,12 +20,7 @@ az_with_resource_id() {
 required=(az sqlcmd curl)
 for command_name in "${required[@]}"; do
   command -v "${command_name}" >/dev/null 2>&1 || {
-    if [[ "${command_name}" == "sqlcmd" ]]; then
-      echo "sqlcmd não encontrado. No Cloud Shell, instale o pacote sqlcmd conforme a documentação da Microsoft e execute novamente." >&2
-      echo "O Azure CLI padrão não possui um comando confiável 'az sql db query'; este script não inventa esse fallback." >&2
-    else
-      echo "Comando obrigatório não encontrado: ${command_name}" >&2
-    fi
+    echo "Comando obrigatório não encontrado: ${command_name}" >&2
     exit 1
   }
 done

@@ -89,7 +89,7 @@ az_with_resource_id monitor metrics list \
   --query 'value[].{metrica:name.localizedValue, media:data[-1].average}' -o table
 
 command -v sqlcmd >/dev/null 2>&1 || {
-  echo "sqlcmd não encontrado; instale-o para coletar as evidências das tabelas." >&2
+  echo "Comando obrigatório não encontrado: sqlcmd" >&2
   exit 1
 }
 
@@ -116,4 +116,4 @@ sqlcmd -S "tcp:${SQL_SERVER_NAME}.database.windows.net,1433" \
   -Q "SET NOCOUNT ON; SELECT id, descricao, valor, tipo, data, conta_id FROM dbo.transacao ORDER BY id;" -b
 
 unset SQLCMDPASSWORD SQL_ADMIN_PASSWORD
-echo "Coleta concluída sem exibir segredos."
+echo "Verificação concluída."
