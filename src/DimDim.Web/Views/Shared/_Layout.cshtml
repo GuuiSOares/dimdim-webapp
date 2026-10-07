@@ -1,0 +1,62 @@
+﻿@{ var controller = ViewContext.RouteData.Values["controller"]?.ToString(); }
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - DimDim</title>
+    <link rel="icon" type="image/webp" href="~/img/logo-dimdim.webp" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/DimDim.Web.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm dd-navbar">
+            <div class="container">
+                <a class="navbar-brand dd-brand" asp-controller="Home" asp-action="Index">
+                    <img class="dd-logo" src="~/img/logo-dimdim.webp" alt="DimDim" asp-append-version="true" />
+                    <span class="dd-brand-text">Banco DimDim</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Abrir menu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-end">
+                    <ul class="navbar-nav dd-nav">
+                        <li class="nav-item">
+                            <a class="nav-link @(controller == "Home" ? "active" : "")" asp-controller="Home" asp-action="Index">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @(controller == "Contas" ? "active" : "")" asp-controller="Contas" asp-action="Index">Contas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @(controller == "Transacoes" ? "active" : "")" asp-controller="Transacoes" asp-action="Index">Transações</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container py-4">
+        <main role="main" class="pb-3">
+            @if (TempData["Success"] is string success) { <div class="alert alert-success">@success</div> }
+            @if (TempData["Error"] is string error) { <div class="alert alert-danger">@error</div> }
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="footer dd-footer">
+        <div class="container d-flex justify-content-between">
+            <span>&copy; 2026 DimDim</span>
+            <span>Tradição em servir bem</span>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

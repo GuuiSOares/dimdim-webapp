@@ -1,0 +1,5 @@
+@model Transacao
+@{ ViewData["Title"] = "Detalhes da transação"; }
+<div class="d-flex justify-content-between align-items-center mb-3"><h1>@Model.Descricao</h1><a class="btn btn-outline-primary" asp-action="Edit" asp-route-id="@Model.Id">Editar</a></div>
+<div class="card metric"><div class="card-body row g-3"><div class="col-md-3"><small>Conta</small><div>@Model.Conta?.Nome</div></div><div class="col-md-3"><small>Tipo</small><div>@Model.Tipo</div></div><div class="col-md-3"><small>Data</small><div>@Model.Data.ToString("dd/MM/yyyy")</div></div><div class="col-md-3"><small>Valor</small><div class="h4 @(Model.Tipo == TipoTransacao.Receita ? "text-success" : "text-danger")">@Model.Valor.ToString("C")</div></div></div></div>
+<a class="btn btn-outline-secondary mt-3" asp-action="Index">Voltar</a>

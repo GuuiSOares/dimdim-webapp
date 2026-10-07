@@ -1,0 +1,12 @@
+﻿@model ErrorViewModel
+@{ ViewData["Title"] = "Erro"; }
+
+<div class="card"><div class="card-body">
+    <h1>Ops! Algo deu errado.</h1>
+    <p class="mb-2">Não foi possível concluir a sua solicitação. Tente novamente em instantes.</p>
+    @if (Model.ShowRequestId)
+    {
+        <p class="mb-3"><small>Código da solicitação:</small> <code>@Model.RequestId</code></p>
+    }
+    <a class="btn btn-primary" asp-controller="Home" asp-action="Index">Voltar ao dashboard</a>
+</div></div>

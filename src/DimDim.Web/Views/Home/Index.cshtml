@@ -1,0 +1,22 @@
+﻿@using DimDim.Web.Models
+@{ ViewData["Title"] = "Dashboard"; var ultimas = ViewBag.Ultimas as IEnumerable<Transacao> ?? []; }
+
+<div class="dd-hero mb-4 d-flex flex-wrap justify-content-between align-items-center gap-3">
+    <div>
+        <h1>Olá! Bem-vindo à DimDim</h1>
+        <p class="mb-0">Tradição em servir bem. Acompanhe suas contas e transações em um só lugar.</p>
+    </div>
+    <a class="btn btn-primary btn-lg" asp-controller="Transacoes" asp-action="Create">Nova transação</a>
+</div>
+<div class="row g-3 mb-4">
+    <div class="col-md-4"><div class="card metric"><div class="card-body"><span>Saldo total</span><h2>@(((decimal)ViewBag.SaldoTotal).ToString("C"))</h2></div></div></div>
+    <div class="col-md-4"><div class="card metric"><div class="card-body"><span>Contas</span><h2>@ViewBag.TotalContas</h2></div></div></div>
+    <div class="col-md-4"><div class="card metric"><div class="card-body"><span>Transações</span><h2>@ViewBag.TotalTransacoes</h2></div></div></div>
+</div>
+<div class="card"><div class="card-body">
+    <h2 class="h5">Últimas transações</h2>
+    <div class="table-responsive"><table class="table table-hover align-middle mb-0"><thead><tr><th>Descrição</th><th>Conta</th><th>Data</th><th class="text-end">Valor</th></tr></thead><tbody>
+    @foreach (var t in ultimas) { <tr><td>@t.Descricao</td><td>@t.Conta?.Nome</td><td>@t.Data.ToString("dd/MM/yyyy")</td><td class="text-end fw-bold @(t.Tipo == TipoTransacao.Receita ? "text-success" : "text-danger")">@((t.Tipo == TipoTransacao.Receita ? t.Valor : -t.Valor).ToString("C"))</td></tr> }
+    @if (!ultimas.Any()) { <tr><td colspan="4" class="text-center text-muted py-4">Nenhuma transação cadastrada.</td></tr> }
+    </tbody></table></div>
+</div></div>

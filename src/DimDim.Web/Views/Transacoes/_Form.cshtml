@@ -1,0 +1,8 @@
+@model Transacao
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<div class="mb-3"><label asp-for="Descricao" class="form-label"></label><input asp-for="Descricao" class="form-control" /><span asp-validation-for="Descricao" class="text-danger"></span></div>
+<div class="row"><div class="col-md-6 mb-3"><label asp-for="Valor" class="form-label"></label><input asp-for="Valor" type="text" inputmode="decimal" class="form-control" /><span asp-validation-for="Valor" class="text-danger"></span></div>
+<div class="col-md-6 mb-3"><label asp-for="Data" class="form-label"></label><input asp-for="Data" class="form-control" /><span asp-validation-for="Data" class="text-danger"></span></div></div>
+<div class="row"><div class="col-md-6 mb-3"><label asp-for="Tipo" class="form-label"></label><select asp-for="Tipo" asp-items="Html.GetEnumSelectList<TipoTransacao>()" class="form-select"><option value="">Selecione</option></select><span asp-validation-for="Tipo" class="text-danger"></span></div>
+<div class="col-md-6 mb-3"><label asp-for="ContaId" class="form-label"></label><select asp-for="ContaId" asp-items="ViewBag.ContaId" class="form-select"><option value="">Selecione</option></select><span asp-validation-for="ContaId" class="text-danger"></span></div></div>
+<button class="btn btn-primary" type="submit">Salvar</button> <a class="btn btn-outline-secondary" asp-action="Index">Cancelar</a>

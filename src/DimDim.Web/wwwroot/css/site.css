@@ -1,0 +1,240 @@
+:root {
+  --dd-yellow: #fff000;
+  --dd-yellow-dark: #ebdc00;
+  --dd-yellow-soft: #fffbcc;
+  --dd-charcoal: #484848;
+  --dd-charcoal-dark: #2f2f2f;
+  --dd-gray: #6f6f6f;
+  --dd-bg: #fafaf5;
+  --bs-body-font-family: "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --bs-body-color: var(--dd-charcoal);
+  --bs-link-color: var(--dd-charcoal);
+  --bs-link-color-rgb: 72, 72, 72;
+  --bs-link-hover-color: var(--dd-charcoal-dark);
+  --bs-link-hover-color-rgb: 47, 47, 47;
+}
+
+html {
+  font-size: 14px;
+  position: relative;
+  min-height: 100%;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+body {
+  margin-bottom: 60px;
+  background: var(--dd-bg);
+  color: var(--dd-charcoal);
+}
+
+h1, h2, h3, .h4, .h5, .dd-brand-text {
+  font-family: "Fredoka", "Nunito", sans-serif;
+  font-weight: 600;
+  color: var(--dd-charcoal-dark);
+}
+
+.dd-navbar {
+  background: #fff;
+  border-bottom: 4px solid var(--dd-yellow);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, .05);
+}
+
+.dd-brand {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+}
+
+.dd-logo {
+  height: 60px;
+  width: auto;
+}
+
+.dd-brand-text {
+  font-size: 1.35rem;
+}
+
+.dd-nav .nav-link {
+  font-weight: 700;
+  color: var(--dd-gray);
+  border-radius: 999px;
+  padding: .45rem 1.1rem !important;
+  margin-left: .25rem;
+}
+
+.dd-nav .nav-link:hover {
+  color: var(--dd-charcoal-dark);
+  background: var(--dd-yellow-soft);
+}
+
+.dd-nav .nav-link.active {
+  color: var(--dd-charcoal-dark);
+  background: var(--dd-yellow);
+}
+
+.dd-hero {
+  background: var(--dd-yellow);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.dd-hero h1 {
+  font-size: 2.2rem;
+  margin-bottom: .25rem;
+}
+
+.dd-hero p {
+  color: var(--dd-charcoal);
+  font-weight: 600;
+}
+
+.dd-hero::after {
+  content: "";
+  position: absolute;
+  right: -60px;
+  top: -60px;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .25);
+}
+
+.dd-hero .btn {
+  position: relative;
+  z-index: 1;
+}
+
+h1 {
+  margin-bottom: 1rem;
+}
+
+.card {
+  border: 0;
+  border-radius: 1.25rem;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, .06);
+}
+
+.card > .table-responsive {
+  padding: .5rem 1rem;
+}
+
+.metric {
+  border-left: 6px solid var(--dd-yellow);
+}
+
+.metric span, small {
+  color: var(--dd-gray);
+  font-weight: 600;
+}
+
+.metric h2 {
+  margin: .35rem 0 0;
+  font-weight: 700;
+}
+
+.btn {
+  border-radius: 999px;
+  font-weight: 700;
+  padding-left: 1.2rem;
+  padding-right: 1.2rem;
+}
+
+.btn-sm {
+  padding-left: .85rem;
+  padding-right: .85rem;
+}
+
+.btn-primary {
+  --bs-btn-color: var(--dd-charcoal-dark);
+  --bs-btn-bg: var(--dd-yellow);
+  --bs-btn-border-color: var(--dd-yellow);
+  --bs-btn-hover-color: var(--dd-charcoal-dark);
+  --bs-btn-hover-bg: var(--dd-yellow-dark);
+  --bs-btn-hover-border-color: var(--dd-yellow-dark);
+  --bs-btn-active-color: var(--dd-charcoal-dark);
+  --bs-btn-active-bg: var(--dd-yellow-dark);
+  --bs-btn-active-border-color: var(--dd-yellow-dark);
+}
+
+.btn-dark, .dd-hero .btn-primary {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: var(--dd-charcoal-dark);
+  --bs-btn-border-color: var(--dd-charcoal-dark);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #000;
+  --bs-btn-hover-border-color: #000;
+}
+
+.btn-outline-primary {
+  --bs-btn-color: var(--dd-charcoal);
+  --bs-btn-border-color: var(--dd-charcoal);
+  --bs-btn-hover-color: var(--dd-charcoal-dark);
+  --bs-btn-hover-bg: var(--dd-yellow);
+  --bs-btn-hover-border-color: var(--dd-yellow);
+  --bs-btn-active-color: var(--dd-charcoal-dark);
+  --bs-btn-active-bg: var(--dd-yellow);
+  --bs-btn-active-border-color: var(--dd-yellow);
+}
+
+.btn:focus-visible, .form-control:focus, .form-select:focus, .form-check-input:focus {
+  border-color: var(--dd-charcoal);
+  box-shadow: 0 0 0 .25rem rgba(255, 240, 0, .55);
+}
+
+.form-card {
+  max-width: 720px;
+}
+
+.form-label {
+  font-weight: 700;
+}
+
+.form-control, .form-select {
+  border-radius: .75rem;
+}
+
+.table {
+  --bs-table-hover-bg: var(--dd-yellow-soft);
+}
+
+.table thead th {
+  color: var(--dd-gray);
+  font-weight: 700;
+  font-size: .85rem;
+  text-transform: uppercase;
+  letter-spacing: .03em;
+  border-bottom-width: 2px;
+}
+
+table a {
+  text-decoration: none;
+  font-weight: 700;
+}
+
+table a:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--dd-yellow-dark);
+  text-decoration-thickness: 3px;
+}
+
+.dd-footer {
+  background: var(--dd-charcoal-dark);
+  color: #d9d9d9;
+  font-size: .9rem;
+}
+
+.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
+  color: var(--bs-secondary-color);
+  text-align: end;
+}
+
+.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
+  text-align: start;
+}

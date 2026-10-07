@@ -1,0 +1,5 @@
+@model Conta
+@{ ViewData["Title"] = "Editar conta"; }
+<h1>Editar conta</h1>
+<div class="card form-card"><div class="card-body"><form asp-action="Edit" method="post"><input asp-for="Id" type="hidden" /><partial name="_Form" /></form></div></div>
+@section Scripts { <partial name="_ValidationScriptsPartial" /> }

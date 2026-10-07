@@ -1,0 +1,9 @@
+@model IEnumerable<Conta>
+@{ ViewData["Title"] = "Contas"; }
+<div class="d-flex justify-content-between align-items-center mb-3"><h1>Contas</h1><a class="btn btn-primary" asp-action="Create">Nova conta</a></div>
+<div class="card"><div class="table-responsive"><table class="table table-hover align-middle mb-0"><thead><tr><th>Nome</th><th>Instituição</th><th>Tipo</th><th class="text-end">Saldo</th><th></th></tr></thead><tbody>
+@foreach (var item in Model) {
+<tr><td><a asp-action="Details" asp-route-id="@item.Id">@item.Nome</a></td><td>@item.Instituicao</td><td>@item.Tipo</td><td class="text-end fw-bold">@item.Saldo.ToString("C")</td><td class="text-end text-nowrap"><a class="btn btn-sm btn-outline-primary" asp-action="Edit" asp-route-id="@item.Id">Editar</a> <form asp-action="Delete" asp-route-id="@item.Id" method="post" class="d-inline" onsubmit="return confirm('Excluir esta conta?')"><button class="btn btn-sm btn-outline-danger">Excluir</button></form></td></tr>
+}
+@if (!Model.Any()) { <tr><td colspan="5" class="text-center text-muted py-4">Nenhuma conta cadastrada.</td></tr> }
+</tbody></table></div></div>

@@ -1,0 +1,8 @@
+@model Conta
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<div class="mb-3"><label asp-for="Nome" class="form-label"></label><input asp-for="Nome" class="form-control" /><span asp-validation-for="Nome" class="text-danger"></span></div>
+<div class="mb-3"><label asp-for="Instituicao" class="form-label"></label><input asp-for="Instituicao" class="form-control" /><span asp-validation-for="Instituicao" class="text-danger"></span></div>
+<div class="mb-3"><label asp-for="Tipo" class="form-label"></label><select asp-for="Tipo" class="form-select"><option value="">Selecione</option><option>Conta corrente</option><option>Poupança</option><option>Carteira</option><option>Investimento</option></select><span asp-validation-for="Tipo" class="text-danger"></span></div>
+<div class="mb-3"><label asp-for="SaldoInicial" class="form-label"></label><input asp-for="SaldoInicial" type="text" inputmode="decimal" class="form-control" /><span asp-validation-for="SaldoInicial" class="text-danger"></span></div>
+<button class="btn btn-primary" type="submit">Salvar</button>
+<a class="btn btn-outline-secondary" asp-action="Index">Cancelar</a>
