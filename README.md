@@ -4,13 +4,17 @@ Aplicação web do banco DimDim para controle financeiro, com dashboard e CRUD d
 
 A solução possui front-end e não é uma API, por isso não há JSON de operações GET, POST, PUT e DELETE.
 
-## Integrantes
+## Equipe TriCode
 
-- `[NOME — RM]`
+| RM | Nome |
+|---|---|
+| 562673 | Geovanne Coneglian Passos (representante) |
+| 563960 | Lucas Silva Gastao Pinheiro |
+| 563143 | Guilherme Soares De Almeida |
 
 ## Vídeo
 
-`[URL DO VÍDEO]`
+[https://youtu.be/aRvHob0vQHQ](https://youtu.be/aRvHob0vQHQ)
 
 ## Arquitetura
 
